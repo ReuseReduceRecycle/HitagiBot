@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -21,7 +20,7 @@ namespace HitagiBot.Utilities
             Message resultMessage = null;
             var replyToMessageId = source.Chat.Type == ChatType.Private ? 0 : source.MessageId;
 
-            for (var i = 0; i < 3; ++i)
+            for (var i = 0; i < 5; ++i)
                 try
                 {
                     resultMessage = await botClient.SendTextMessageAsync(source.Chat.Id, text, parseMode,
@@ -30,7 +29,7 @@ namespace HitagiBot.Utilities
                 }
                 catch (HttpRequestException)
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(1 * i));
+                    await Task.Delay(TimeSpan.FromSeconds(Math.Pow(3, i)));
                 }
 
             return resultMessage;
