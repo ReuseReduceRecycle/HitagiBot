@@ -15,5 +15,11 @@
     <PackageReference Include="TheTVDBSharp" Version="2.0.2" />
     <PackageReference Include="TMDbLib" Version="1.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   
 </Project>
