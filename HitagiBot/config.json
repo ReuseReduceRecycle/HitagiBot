@@ -1,0 +1,20 @@
+﻿{
+	"Maintainer": 123456789,
+	"Tokens": {
+		"Telegram": "123456789:ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+		"Google Geocoder": "ABCDEFGHIJKLMNOPQRSTUVWXYZ-ZYXWVUTSRQ",
+		"LastFM": {
+			"ApiKey": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+			"ApiSecret": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		},
+		"TheMovieDB": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+		"TheTVDB": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+		"DarkSky": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	},
+	"MySQL": {
+		"Server": "localhost",
+		"Database Name": "Telegram",
+		"Username": "root",
+		"Password": "t0ps3cr3t"
+	}
+}
