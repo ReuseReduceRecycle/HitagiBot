@@ -14,7 +14,7 @@ namespace HitagiBot
 {
     public static class Program
     {
-        public static IConfigurationRoot Config = InitializeConfiguration();
+        public static readonly IConfigurationRoot Config = InitializeConfiguration();
         private static ArgumentHandler<Message> _messageHandler;
 
         private static void Main()
