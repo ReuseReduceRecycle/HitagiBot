@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using HitagiBot.Commands;
 using HitagiBot.Utilities;
@@ -17,7 +16,7 @@ namespace HitagiBot
         public static readonly IConfigurationRoot Config = InitializeConfiguration();
         private static ArgumentHandler<Message> _messageHandler;
 
-        private static void Main()
+        public static async Task Main()
         {
             Console.Title = nameof(HitagiBot);
 
@@ -26,7 +25,8 @@ namespace HitagiBot
 
             try
             {
-                botUsername = botHandle.GetMeAsync().Result.Username;
+                var botUser = await botHandle.GetMeAsync();
+                botUsername = botUser.Username;
             }
             catch (AggregateException e)
             {
@@ -57,7 +57,7 @@ namespace HitagiBot
             botHandle.StartReceiving();
 
             while (botHandle.IsReceiving)
-                Thread.Sleep(TimeSpan.FromSeconds(10));
+                await Task.Delay(TimeSpan.FromSeconds(10));
 
             Environment.Exit(0);
         }
