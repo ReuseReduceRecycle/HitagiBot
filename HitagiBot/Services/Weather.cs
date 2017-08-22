@@ -10,18 +10,18 @@ namespace HitagiBot.Services
     {
         private static readonly DarkSkyService DarkSkyHandle = new DarkSkyService(Program.Config["Tokens:DarkSky"]);
 
-        private static readonly Dictionary<Icon, string> EmojiMapping = new Dictionary<Icon, string>
+        private static readonly Dictionary<Icon, string> StringMapping = new Dictionary<Icon, string>
         {
-            {Icon.ClearDay, "☀️"},
-            {Icon.ClearNight, "🌕"},
-            {Icon.PartlyCloudyDay, "⛅️"},
-            {Icon.PartlyCloudyNight, "⛅️"},
-            {Icon.Cloudy, "☁️"},
-            {Icon.Rain, "🌧"},
-            {Icon.Sleet, "🌨"},
-            {Icon.Snow, "❄️"},
-            {Icon.Wind, "💨"},
-            {Icon.Fog, "🌫️"}
+            {Icon.ClearDay, "clear"},
+            {Icon.ClearNight, "clear"},
+            {Icon.PartlyCloudyDay, "partly cloudy"},
+            {Icon.PartlyCloudyNight, "partly cloudy"},
+            {Icon.Cloudy, "cloudy"},
+            {Icon.Rain, "raining"},
+            {Icon.Sleet, "sleeting"},
+            {Icon.Snow, "snowing"},
+            {Icon.Wind, "windy"},
+            {Icon.Fog, "foggy"}
         };
 
         public static async Task<Forecast> GetForecast(double latitude, double longitude)
@@ -33,9 +33,9 @@ namespace HitagiBot.Services
             throw new ServiceException(result.ResponseReasonPhrase);
         }
 
-        public static string ToEmoji(this Icon icon)
+        public static string IconToString(this Icon icon)
         {
-            return EmojiMapping[icon];
+            return StringMapping[icon];
         }
     }
 }

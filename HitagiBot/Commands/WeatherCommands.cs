@@ -27,7 +27,7 @@ namespace HitagiBot.Commands
                 else
                     formattedWeather.AppendFormat("It's {0:0.00}°C and ", 5.0 / 9.0 * (temperature - 32));
 
-                formattedWeather.AppendFormat("{0} in {1}", forecast.Currently.Icon.ToEmoji(),
+                formattedWeather.AppendFormat("{0} in {1}", forecast.Currently.Icon.IconToString(),
                     address.FormattedAddress);
 
                 return formattedWeather.ToString();
@@ -48,7 +48,7 @@ namespace HitagiBot.Commands
                 else
                     formattedWeather.AppendFormat("It's {0:0.00}°C and ", 5.0 / 9.0 * (temperature - 32));
 
-                formattedWeather.AppendFormat("{0} in {1}", forecast.Currently.Icon.ToEmoji(),
+                formattedWeather.AppendFormat("{0} in {1}", forecast.Currently.Icon.IconToString(),
                     userLocation.FormattedAddress);
 
                 return formattedWeather.ToString();
