@@ -21,14 +21,16 @@ namespace HitagiBot.Commands
             if (forecast.Currently.Temperature.HasValue)
             {
                 var temperature = forecast.Currently.Temperature.Value;
+                var unit = 'F';
 
-                if (address.IsAmerica())
-                    formattedWeather.AppendFormat("It's {0:0.00}°F and ", temperature);
-                else
-                    formattedWeather.AppendFormat("It's {0:0.00}°C and ", 5.0 / 9.0 * (temperature - 32));
+                if (!address.IsAmerica())
+                {
+                    temperature = 5.0 / 9.0 * (temperature - 32);
+                    unit = 'C';
+                }
 
-                formattedWeather.AppendFormat("{0} in {1}", forecast.Currently.Icon.IconToString(),
-                    address.FormattedAddress);
+                formattedWeather.AppendFormat("It's {0:0.00}°{1} and {2} in {3}", temperature, unit,
+                    forecast.Currently.Icon.IconToString(), address.FormattedAddress);
 
                 return formattedWeather.ToString();
             }
