@@ -55,9 +55,9 @@ namespace HitagiBot.Commands
 
             formattedMessage.Append(username);
 
-            formattedMessage.Append(track.IsNowPlaying.HasValue ? " is currently listening:" : " last listened:");
+            formattedMessage.Append(track.IsNowPlaying.HasValue ? " is currently listening to:" : " last listened to:");
 
-            formattedMessage.AppendFormat("to:\n{0} ♪ {1}", track.ArtistName, track.Name);
+            formattedMessage.AppendFormat("\n{0} ♪ {1}", track.ArtistName, track.Name);
 
             return formattedMessage.ToString();
         }
