@@ -70,6 +70,42 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Where would you like coordinates for (・∧‐)ゞ?.
+        /// </summary>
+        internal static string GeocodeDefault {
+            get {
+                return ResourceManager.GetString("GeocodeDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alright, I&apos;ve set your location to {0}..
+        /// </summary>
+        internal static string GeocodeLocationSet {
+            get {
+                return ResourceManager.GetString("GeocodeLocationSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I couldn&apos;t find this location ┐(‘～`；)┌.
+        /// </summary>
+        internal static string GeocodeNotFound {
+            get {
+                return ResourceManager.GetString("GeocodeNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;{0}\nLatitude:&lt;/b&gt; {1}&lt;b&gt;Longitude:&lt;/b&gt; {2}.
+        /// </summary>
+        internal static string GeocodeResult {
+            get {
+                return ResourceManager.GetString("GeocodeResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hi, I&apos;m Hitagi!.
         /// </summary>
         internal static string Greeting {

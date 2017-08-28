@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Geocoding.Google;
 using HitagiBot.Data;
+using HitagiBot.Localization;
 using HitagiBot.Services;
 using HitagiBot.Utilities;
 using Telegram.Bot;
@@ -48,18 +48,13 @@ namespace HitagiBot.Commands
 
         private static string FormatGeolocation(GoogleAddress address)
         {
-            var geolocationText = new StringBuilder();
-
-            geolocationText.AppendFormat("<b>{0}</b>", address.FormattedAddress);
-            geolocationText.AppendFormat("\n<b>Latitude</b>: {0}", address.Coordinates.Latitude);
-            geolocationText.AppendFormat("\n<b>Longitude</b>: {0}", address.Coordinates.Longitude);
-
-            return geolocationText.ToString();
+            return string.Format(Strings.GeocodeResult, address.FormattedAddress, address.Coordinates.Latitude,
+                address.Coordinates.Longitude);
         }
 
         public static async Task SetLocation(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            var responseText = "What location should I set it to (・∧‐)ゞ?";
+            var responseText = Strings.GeocodeDefault;
 
             if (!string.IsNullOrWhiteSpace(matches[2].Value))
             {
@@ -70,11 +65,11 @@ namespace HitagiBot.Commands
                 {
                     await AddOrUpdateLocation(source.From.Id, address);
 
-                    responseText = $"Alright, I've set your location to {address.FormattedAddress}.";
+                    responseText = string.Format(Strings.GeocodeLocationSet, address.FormattedAddress);
                 }
                 else
                 {
-                    responseText = "I couldn't find this location ┐(‘～`；)┌";
+                    responseText = Strings.GeocodeNotFound;
                 }
             }
 
@@ -83,14 +78,14 @@ namespace HitagiBot.Commands
 
         public static async Task Geocode(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            var responseText = "Where would you like coordinates for (・∧‐)ゞ?";
+            var responseText = Strings.GeocodeDefault;
 
             if (!string.IsNullOrWhiteSpace(matches[2].Value))
             {
                 var addresses = await Geocoder.GetAddresses(matches[2].Value);
                 var address = addresses?.FirstOrDefault();
 
-                responseText = address != null ? FormatGeolocation(address) : "I couldn't find this location ┐(‘～`；)┌";
+                responseText = address != null ? FormatGeolocation(address) : Strings.GeocodeNotFound;
             }
 
             await botHandle.SendSmartTextMessageAsync(source, responseText, ParseMode.Html);

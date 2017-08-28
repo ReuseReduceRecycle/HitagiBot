@@ -120,6 +120,18 @@
   <data name="Error" xml:space="preserve">
     <value>Oops, something went wrong ﾍ(;´o｀)ﾍ</value>
   </data>
+  <data name="GeocodeDefault" xml:space="preserve">
+    <value>Where would you like coordinates for (・∧‐)ゞ?</value>
+  </data>
+  <data name="GeocodeLocationSet" xml:space="preserve">
+    <value>Alright, I've set your location to {0}.</value>
+  </data>
+  <data name="GeocodeNotFound" xml:space="preserve">
+    <value>I couldn't find this location ┐(‘～`；)┌</value>
+  </data>
+  <data name="GeocodeResult" xml:space="preserve">
+    <value>&lt;b&gt;{0}\nLatitude:&lt;/b&gt; {1}&lt;b&gt;Longitude:&lt;/b&gt; {2}</value>
+  </data>
   <data name="Greeting" xml:space="preserve">
     <value>Hi, I'm Hitagi!</value>
   </data>
