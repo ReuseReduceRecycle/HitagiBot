@@ -40,7 +40,6 @@ namespace HitagiBot
             _messageHandler.Add("/start", BaseCommands.Start);
             _messageHandler.Add("/help", BaseCommands.Help);
             _messageHandler.Add("/settings", BaseCommands.Settings);
-            _messageHandler.Add("/info", BaseCommands.Info);
             _messageHandler.Add("/lastplayed", LastFmCommands.LastPlayed);
             _messageHandler.Add("/setlastfm", LastFmCommands.SetLastFm);
             _messageHandler.Add("/weather", WeatherCommands.WeatherCommand);

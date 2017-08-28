@@ -22,10 +22,5 @@ namespace HitagiBot.Commands
         {
             await botHandle.SendSmartTextMessageAsync(source, "Coming soon!");
         }
-
-        public static async Task Info(TelegramBotClient botHandle, Message source, GroupCollection matches)
-        {
-            await botHandle.SendSmartTextMessageAsync(source, "Coming soon!");
-        }
     }
 }
