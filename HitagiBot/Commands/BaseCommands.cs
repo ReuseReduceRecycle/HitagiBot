@@ -11,7 +11,7 @@ namespace HitagiBot.Commands
     {
         public static async Task Start(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            await botHandle.SendSmartTextMessageAsync(source, Strings.Greetinge);
+            await botHandle.SendSmartTextMessageAsync(source, Strings.Greeting);
         }
 
         public static async Task Help(TelegramBotClient botHandle, Message source, GroupCollection matches)
