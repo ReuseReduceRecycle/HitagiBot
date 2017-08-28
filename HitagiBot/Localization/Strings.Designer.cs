@@ -68,5 +68,14 @@ namespace HitagiBot.Localization {
                 return ResourceManager.GetString("Error", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hi, I&apos;m Hitagi!.
+        /// </summary>
+        internal static string Greeting {
+            get {
+                return ResourceManager.GetString("Greeting", resourceCulture);
+            }
+        }
     }
 }

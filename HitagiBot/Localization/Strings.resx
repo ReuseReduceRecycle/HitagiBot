@@ -120,4 +120,7 @@
   <data name="Error" xml:space="preserve">
     <value>Oops, something went wrong ﾍ(;´o｀)ﾍ</value>
   </data>
+  <data name="Greeting" xml:space="preserve">
+    <value>Hi, I'm Hitagi!</value>
+  </data>
 </root>
