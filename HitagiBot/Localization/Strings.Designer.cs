@@ -59,5 +59,14 @@ namespace HitagiBot.Localization {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oops, something went wrong ﾍ(;´o｀)ﾍ.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
     }
 }

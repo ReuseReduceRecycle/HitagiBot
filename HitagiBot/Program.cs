@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using HitagiBot.Commands;
+using HitagiBot.Localization;
 using HitagiBot.Utilities;
 using Microsoft.Extensions.Configuration;
 using Telegram.Bot;
@@ -94,10 +95,9 @@ namespace HitagiBot
 
                 using (var errorStream = new MemoryStream(Encoding.UTF8.GetBytes(errorText)))
                 {
-                    var oops = "Oops, something went wrong ﾍ(;´o｀)ﾍ";
                     var errorFile = new FileToSend("Error.txt", errorStream);
 
-                    await botHandle.SendSmartTextMessageAsync(message, oops);
+                    await botHandle.SendSmartTextMessageAsync(message, Strings.Error);
                     await botHandle.SendDocumentAsync(Config["Maintainer"], errorFile);
                 }
             }
