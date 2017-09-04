@@ -113,5 +113,41 @@ namespace HitagiBot.Localization {
                 return ResourceManager.GetString("Greeting", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Where should I look? (・∧‐)ゞ.
+        /// </summary>
+        internal static string WeatherDefault {
+            get {
+                return ResourceManager.GetString("WeatherDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something broke while I was looking at the weather 【・ヘ・】.
+        /// </summary>
+        internal static string WeatherError {
+            get {
+                return ResourceManager.GetString("WeatherError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I don&apos;t know where that is ＼| ￣ヘ￣|／.
+        /// </summary>
+        internal static string WeatherNotFound {
+            get {
+                return ResourceManager.GetString("WeatherNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s {0:0.00}°{1} and {2} in {3}!.
+        /// </summary>
+        internal static string WeatherResult {
+            get {
+                return ResourceManager.GetString("WeatherResult", resourceCulture);
+            }
+        }
     }
 }

@@ -135,4 +135,16 @@
   <data name="Greeting" xml:space="preserve">
     <value>Hi, I'm Hitagi!</value>
   </data>
+  <data name="WeatherDefault" xml:space="preserve">
+    <value>Where should I look? (・∧‐)ゞ</value>
+  </data>
+  <data name="WeatherError" xml:space="preserve">
+    <value>Something broke while I was looking at the weather 【・ヘ・】</value>
+  </data>
+  <data name="WeatherNotFound" xml:space="preserve">
+    <value>I don't know where that is ＼| ￣ヘ￣|／</value>
+  </data>
+  <data name="WeatherResult" xml:space="preserve">
+    <value>It's {0:0.00}°{1} and {2} in {3}!</value>
+  </data>
 </root>

@@ -7,6 +7,7 @@ using Geocoding.Google;
 using HitagiBot.Data;
 using HitagiBot.Services;
 using HitagiBot.Utilities;
+using HitagiBot.Localization;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -17,7 +18,7 @@ namespace HitagiBot.Commands
         private static string FormatWeather<T>(Forecast forecast, T locationInfo)
         {
             if (!forecast.Currently.Temperature.HasValue)
-                return "Something broke while I was looking at the weather【・ヘ・】";
+                return Strings.WeatherError;
 
             string formattedAddress;
             double temperature;
@@ -42,7 +43,7 @@ namespace HitagiBot.Commands
             else
                 temperature = forecast.Currently.Temperature.Value;
 
-            return $"It's {temperature:0.00}°{unit} and {forecast.Currently.Icon.IconToString()} in {formattedAddress}";
+            return string.Format(Strings.WeatherResult, temperature, unit, forecast.Currently.Icon.IconToString(), formattedAddress);
         }
 
         private static async Task<string> GetUserWeather(int id)
@@ -58,7 +59,7 @@ namespace HitagiBot.Commands
 
                     return FormatWeather(weatherInfo, location);
                 }
-                return "Where should I look? (・∧‐)ゞ";
+                return Strings.WeatherDefault;
             }
         }
 
@@ -74,7 +75,7 @@ namespace HitagiBot.Commands
 
                 return FormatWeather(weatherInfo, address);
             }
-            return "I don't know where that is ＼| ￣ヘ￣|／";
+            return Strings.WeatherNotFound;
         }
 
         public static async Task Forecast(TelegramBotClient botHandle, Message source, GroupCollection matches)
