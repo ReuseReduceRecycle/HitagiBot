@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Text;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DarkSky.Models;
@@ -14,48 +14,35 @@ namespace HitagiBot.Commands
 {
     public static class WeatherCommands
     {
-        private static string FormatWeather(Forecast forecast, GoogleAddress address)
+        private static string FormatWeather<T>(Forecast forecast, T locationInfo)
         {
-            var formattedWeather = new StringBuilder();
+            if (!forecast.Currently.Temperature.HasValue)
+                return "Something broke while I was looking at the weather【・ヘ・】";
 
-            if (forecast.Currently.Temperature.HasValue)
+            string formattedAddress;
+            double temperature;
+            char unit;
+
+            switch (locationInfo)
             {
-                var temperature = forecast.Currently.Temperature.Value;
-                var unit = 'F';
-
-                if (!address.IsAmerica())
-                {
-                    temperature = 5.0 / 9.0 * (temperature - 32);
-                    unit = 'C';
-                }
-
-                formattedWeather.AppendFormat("It's {0:0.00}°{1} and {2} in {3}", temperature, unit,
-                    forecast.Currently.Icon.IconToString(), address.FormattedAddress);
-
-                return formattedWeather.ToString();
+                case GoogleAddress address:
+                    unit = address.IsAmerica() ? 'F' : 'C';
+                    formattedAddress = address.FormattedAddress;
+                    break;
+                case UserLocation userLocation:
+                    unit = userLocation.IsAmerica ? 'F' : 'C';
+                    formattedAddress = userLocation.FormattedAddress;
+                    break;
+                default:
+                    throw new ArgumentException("locationInfo is neither GoogleAddress or UserLocation...");
             }
-            return "Something broke while I was looking at the weather【・ヘ・】";
-        }
 
-        private static string FormatWeather(Forecast forecast, UserLocation userLocation)
-        {
-            var formattedWeather = new StringBuilder();
+            if (unit == 'C')
+                temperature = 5.0 / 9.0 * (forecast.Currently.Temperature.Value - 32);
+            else
+                temperature = forecast.Currently.Temperature.Value;
 
-            if (forecast.Currently.Temperature.HasValue)
-            {
-                var temperature = forecast.Currently.Temperature.Value;
-
-                if (userLocation.IsAmerica)
-                    formattedWeather.AppendFormat($"It's {0:0.00}°F and ", temperature);
-                else
-                    formattedWeather.AppendFormat("It's {0:0.00}°C and ", 5.0 / 9.0 * (temperature - 32));
-
-                formattedWeather.AppendFormat("{0} in {1}", forecast.Currently.Icon.IconToString(),
-                    userLocation.FormattedAddress);
-
-                return formattedWeather.ToString();
-            }
-            return "Something broke while I was looking at the weather【・ヘ・】";
+            return $"It's {temperature:0.00}°{unit} and {forecast.Currently.Icon.IconToString()} in {formattedAddress}";
         }
 
         private static async Task<string> GetUserWeather(int id)
