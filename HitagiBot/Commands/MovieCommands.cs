@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -24,7 +23,7 @@ namespace HitagiBot.Commands
             else
                 formattedMessage.Append("</b>");
 
-            IEnumerable<string> genres = movie.GenreIds?.Select(id => TheMovieDb.GetGenre(id));
+            var genres = movie.GenreIds?.Select(TheMovieDb.GetGenre);
             if (genres != null)
                 formattedMessage.AppendFormat("\n{0}", string.Join(", ", genres.ToArray()));
 
