@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 using TMDbLib.Client;
 using TMDbLib.Objects.Search;
@@ -13,7 +14,7 @@ namespace HitagiBot.Services
 
         public static async Task<List<SearchMovie>> SearchMovie(string searchQuery)
         {
-            var movieResponse = await MovieHandle.SearchMovieAsync(searchQuery);
+            var movieResponse = await MovieHandle.SearchMovieAsync(searchQuery, CultureInfo.CurrentCulture.ToString());
 
             return movieResponse?.Results;
         }
