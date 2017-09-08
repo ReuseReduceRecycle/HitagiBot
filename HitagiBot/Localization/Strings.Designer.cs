@@ -70,7 +70,7 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Where would you like coordinates for (・∧‐)ゞ?.
+        ///   Looks up a localized string similar to Where would you like coordinates for?.
         /// </summary>
         internal static string GeocodeDefault {
             get {
@@ -88,7 +88,7 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I couldn&apos;t find this location ┐(‘～`；)┌.
+        ///   Looks up a localized string similar to I couldn&apos;t find this location..
         /// </summary>
         internal static string GeocodeNotFound {
             get {
@@ -115,7 +115,7 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Where should I look? (・∧‐)ゞ.
+        ///   Looks up a localized string similar to Where should I look?.
         /// </summary>
         internal static string WeatherDefault {
             get {
@@ -124,7 +124,7 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something broke while I was looking at the weather 【・ヘ・】.
+        ///   Looks up a localized string similar to Something broke while I was looking at the weather ﾍ(;´o｀)ﾍ.
         /// </summary>
         internal static string WeatherError {
             get {
@@ -133,7 +133,7 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I don&apos;t know where that is ＼| ￣ヘ￣|／.
+        ///   Looks up a localized string similar to I don&apos;t know where that is..
         /// </summary>
         internal static string WeatherNotFound {
             get {
