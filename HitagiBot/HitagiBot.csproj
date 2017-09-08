@@ -23,7 +23,7 @@
     <PackageReference Include="Inflatable.Lastfm" Version="1.0.1.307" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
-    <PackageReference Include="Telegram.Bot" Version="13.1.0" />
+    <PackageReference Include="Telegram.Bot" Version="13.2.1" />
     <PackageReference Include="TheTVDBSharp" Version="2.0.2" />
     <PackageReference Include="TMDbLib" Version="1.0.0" />
   </ItemGroup>
