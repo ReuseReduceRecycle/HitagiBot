@@ -9,10 +9,7 @@ namespace HitagiBot.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(
-                $@"Server={Program.Config["MySQL:Server"]};Database={Program.Config["MySQL:Database Name"]};uid={
-                        Program.Config["MySQL:Username"]
-                    };pwd={Program.Config["MySQL:Password"]}");
+            optionsBuilder.UseSqlite("Data Source=hitagi.db");
         }
     }
 }
