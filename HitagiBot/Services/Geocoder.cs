@@ -15,11 +15,6 @@ namespace HitagiBot.Services
             return await GeocoderHandle.GeocodeAsync(query);
         }
 
-        public static async Task<IEnumerable<GoogleAddress>> GetAddressFromCoordinates(int latitude, int longitude)
-        {
-            return await GeocoderHandle.ReverseGeocodeAsync(latitude, longitude);
-        }
-
         public static bool IsAmerica(this GoogleAddress address)
         {
             var americaCheck = from component in address.Components
