@@ -24,7 +24,7 @@ namespace HitagiBot.Services
             return GenreMapping[genreId];
         }
 
-        public static async Task<Dictionary<int, string>> InitGenres()
+        private static async Task<Dictionary<int, string>> InitGenres()
         {
             var genreDictionary = new Dictionary<int, string>();
             var genres = await MovieHandle.GetMovieGenresAsync();
