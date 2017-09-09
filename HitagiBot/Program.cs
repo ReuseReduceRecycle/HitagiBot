@@ -78,7 +78,7 @@ namespace HitagiBot
             if ((DateTime.Now - message.Date).TotalMinutes > 1)
                 return;
 
-            CultureInfo.CurrentCulture = new CultureInfo(message.From.LanguageCode);
+            CultureInfo.CurrentCulture = new CultureInfo(message.From.LanguageCode ?? "en-US");
 
             if (!string.IsNullOrWhiteSpace(message.Text))
                 _messageHandler.Run(botHandle, message, message.Text).FireAndForget(botHandle, message);
