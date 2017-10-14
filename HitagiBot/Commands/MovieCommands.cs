@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HitagiBot.Localization;
 using HitagiBot.Services;
 using HitagiBot.Utilities;
 using Telegram.Bot;
@@ -49,13 +50,13 @@ namespace HitagiBot.Commands
 
         public static async Task Movie(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            var replyText = "Which movie should I look for ( •᷄ὤ•᷅)？";
+            var replyText = Strings.MovieDefault;
 
             if (!string.IsNullOrWhiteSpace(matches[2].Value))
             {
                 var movies = await TheMovieDb.SearchMovie(matches[2].Value);
 
-                replyText = movies.Count > 0 ? FormatMovie(movies.First()) : "I couldn't find this movie ¯\\_(⊙︿⊙)_/¯";
+                replyText = movies.Count > 0 ? FormatMovie(movies.First()) : Strings.MovieNotFound;
             }
 
             await botHandle.SendSmartTextMessageAsync(source, replyText, ParseMode.Html);
