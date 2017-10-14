@@ -135,6 +135,27 @@
   <data name="Greeting" xml:space="preserve">
     <value>Hi, I'm Hitagi!</value>
   </data>
+  <data name="LastFMCurrentPlaying" xml:space="preserve">
+    <value>{0} is currently listening to:</value>
+  </data>
+  <data name="LastFMDefault" xml:space="preserve">
+    <value>Which LastFM should I check?</value>
+  </data>
+  <data name="LastFMInvalidUsername" xml:space="preserve">
+    <value>This doesn't look like a valid username.</value>
+  </data>
+  <data name="LastFMLastPlayed" xml:space="preserve">
+    <value>{0} last listened to:</value>
+  </data>
+  <data name="LastFMScrobbleError" xml:space="preserve">
+    <value>Something went wrong while I was fetching scrobbles ┌╏ º □ º ╏┐</value>
+  </data>
+  <data name="LastFMSetUsername" xml:space="preserve">
+    <value>Alright, I've set your username to {0}.</value>
+  </data>
+  <data name="LastFMUsername" xml:space="preserve">
+    <value>What should I set your username to?</value>
+  </data>
   <data name="WeatherDefault" xml:space="preserve">
     <value>Where should I look?</value>
   </data>

@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HitagiBot.Data;
 using HitagiBot.Exceptions;
+using HitagiBot.Localization;
 using HitagiBot.Services;
 using HitagiBot.Utilities;
 using IF.Lastfm.Core.Objects;
@@ -53,9 +54,8 @@ namespace HitagiBot.Commands
         {
             var formattedMessage = new StringBuilder();
 
-            formattedMessage.Append(username);
-
-            formattedMessage.Append(track.IsNowPlaying.HasValue ? " is currently listening to:" : " last listened to:");
+            formattedMessage.AppendFormat(
+                track.IsNowPlaying.HasValue ? Strings.LastFMCurrentPlaying : Strings.LastFMLastPlayed, username);
 
             formattedMessage.AppendFormat("\n{0} ♪ {1}", track.ArtistName, track.Name);
 
@@ -82,22 +82,22 @@ namespace HitagiBot.Commands
 
             return track != null
                 ? FormatLastPlayed(username, track)
-                : "Something went wrong while I was fetching scrobbles ┌╏ º □ º ╏┐";
+                : Strings.LastFMScrobbleError;
         }
 
         public static async Task SetLastFm(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            var responseText = "What do you want to set your new username to ¿(❦﹏❦)?";
+            var responseText = Strings.LastFMUsername;
 
             if (!string.IsNullOrWhiteSpace(matches[2].Value))
                 if (LastFm.IsValidUsername(matches[2].Value))
                 {
                     await AddOrUpdateUsername(source.From.Id, matches[2].Value);
-                    responseText = $"Alright, I've set your username to {matches[2].Value} ⌒°(❛ᴗ❛)°⌒";
+                    responseText = string.Format(Strings.LastFMSetUsername, matches[2].Value);
                 }
                 else
                 {
-                    responseText = "This doesn't look like a valid username ヾ(´･ ･｀｡)ノ”";
+                    responseText = Strings.LastFMInvalidUsername;
                 }
 
             await botHandle.SendSmartTextMessageAsync(source, responseText);
@@ -105,7 +105,7 @@ namespace HitagiBot.Commands
 
         public static async Task LastPlayed(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            var responseText = "Which LastFM should I check `(๑ △ ๑)`*";
+            var responseText = Strings.LastFMDefault;
 
             if (string.IsNullOrWhiteSpace(matches[2].Value))
             {
@@ -120,7 +120,7 @@ namespace HitagiBot.Commands
 
                 responseText = LastFm.IsValidUsername(username)
                     ? await SafeLastTrackString(username)
-                    : "This doesn't look like a valid username ヾ(´･ ･｀｡)ノ”";
+                    : Strings.LastFMInvalidUsername;
             }
 
             await botHandle.SendSmartTextMessageAsync(source, responseText);

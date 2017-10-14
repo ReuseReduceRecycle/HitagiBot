@@ -115,6 +115,69 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is currently listening to:.
+        /// </summary>
+        internal static string LastFMCurrentPlaying {
+            get {
+                return ResourceManager.GetString("LastFMCurrentPlaying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which LastFM should I check?.
+        /// </summary>
+        internal static string LastFMDefault {
+            get {
+                return ResourceManager.GetString("LastFMDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This doesn&apos;t look like a valid username..
+        /// </summary>
+        internal static string LastFMInvalidUsername {
+            get {
+                return ResourceManager.GetString("LastFMInvalidUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} last listened to:.
+        /// </summary>
+        internal static string LastFMLastPlayed {
+            get {
+                return ResourceManager.GetString("LastFMLastPlayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong while I was fetching scrobbles ┌╏ º □ º ╏┐.
+        /// </summary>
+        internal static string LastFMScrobbleError {
+            get {
+                return ResourceManager.GetString("LastFMScrobbleError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alright, I&apos;ve set your username to {0}..
+        /// </summary>
+        internal static string LastFMSetUsername {
+            get {
+                return ResourceManager.GetString("LastFMSetUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What should I set your username to?.
+        /// </summary>
+        internal static string LastFMUsername {
+            get {
+                return ResourceManager.GetString("LastFMUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Where should I look?.
         /// </summary>
         internal static string WeatherDefault {
