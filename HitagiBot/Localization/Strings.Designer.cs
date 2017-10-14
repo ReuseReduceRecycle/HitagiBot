@@ -178,6 +178,24 @@ namespace HitagiBot.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Which TV show should I look for?.
+        /// </summary>
+        internal static string TVDefault {
+            get {
+                return ResourceManager.GetString("TVDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I couldn&apos;t find this show..
+        /// </summary>
+        internal static string TVNoResults {
+            get {
+                return ResourceManager.GetString("TVNoResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Where should I look?.
         /// </summary>
         internal static string WeatherDefault {

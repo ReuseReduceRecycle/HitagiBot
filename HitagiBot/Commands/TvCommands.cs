@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HitagiBot.Localization;
 using HitagiBot.Services;
 using HitagiBot.Utilities;
 using Telegram.Bot;
@@ -56,7 +57,7 @@ namespace HitagiBot.Commands
 
         public static async Task TvShow(TelegramBotClient botHandle, Message source, GroupCollection matches)
         {
-            var replyText = "Which TV show should I look for ｢(゜。゜)ﾞ??";
+            var replyText = Strings.TVDefault;
 
             if (!string.IsNullOrWhiteSpace(matches[2].Value))
             {
@@ -72,7 +73,7 @@ namespace HitagiBot.Commands
                 }
                 else
                 {
-                    replyText = "I couldn't find this show ¯\\_ʘᗜʘ_/¯";
+                    replyText = Strings.TVNoResults;
                 }
             }
 

@@ -156,6 +156,12 @@
   <data name="LastFMUsername" xml:space="preserve">
     <value>What should I set your username to?</value>
   </data>
+  <data name="TVDefault" xml:space="preserve">
+    <value>Which TV show should I look for?</value>
+  </data>
+  <data name="TVNoResults" xml:space="preserve">
+    <value>I couldn't find this show.</value>
+  </data>
   <data name="WeatherDefault" xml:space="preserve">
     <value>Where should I look?</value>
   </data>
